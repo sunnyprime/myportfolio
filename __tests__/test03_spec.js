@@ -1,6 +1,13 @@
-const mylib = require('../src/index03');
+const greetings = require('../src/index03');
 
-test('03. Hello user.', () => {
-  expect(mylib()).toEqual({hello: 'hello', userName: 'world'});
-  expect(mylib('ant')).toEqual({hello: 'hello', userName: 'ant'});
+describe('greetings', () => {
+  test('returns an object with hello and default username', () => {
+    const result = greetings();
+    expect(result).toEqual({ hello: 'hello', userName: 'world' });
+  });
+
+  test('returns an object with hello and custom username', () => {
+    const result = greetings('Alice');
+    expect(result).toEqual({ hello: 'hello', userName: 'Alice' });
+  });
 });
